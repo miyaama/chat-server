@@ -6,6 +6,8 @@ const cors = require("cors");
 
 const tzoffset = new Date().getTimezoneOffset() * 60000;
 
+const PORT = process.env.PORT || 5000;
+
 const db = mysql.createPool({
   host: "eu-cdbr-west-03.cleardb.net",
   user: "b2c398a199230c",
@@ -42,8 +44,8 @@ app.post("/api/login", (req, res) => {
   });
 });
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 app.get("/api/get/:recipient_name", (req, res) => {
